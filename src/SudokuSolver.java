@@ -11,13 +11,14 @@ public class SudokuSolver {
 	}
 
 		static void printSolution(SudokuBoard board) {
-			if(board.isSolved()){
-				board.printAndExit();
-			}
-	 
-			int k = getNextFreeIndex(board);
-			if(k == -1)
-				return;
+			if(board.isSolved()) {
+                board.printAndExit();
+            }
+            int k = getNextFreeIndex(board);
+			if(k == -1) {
+                System.out.println("-1");
+                return;
+            }
 			int[] candidates = board.getCandidates(k);
 		
 				for(int i = 0; i < candidates.length; i++){
@@ -57,18 +58,13 @@ public class SudokuSolver {
 
 	
 	public static void main(String[] args) {
-	
-		SudokuBoard startBoard1 = new SudokuBoard(startValues1);
-        SudokuBoard result1 = findSolution(startBoard1);
-        result1.print();
-        SudokuBoard startBoard2 = new SudokuBoard(startValues3);
-        SudokuBoard result2 = findSolution(startBoard2);
-        result2.print();
-        SudokuBoard startBoard3 = new SudokuBoard(startValues2);
-        SudokuBoard result3 = findSolution(startBoard3);
-        result3.print();
-
-	}
+        System.out.println(1);
+        printSolution(new SudokuBoard(startValues1));
+        System.out.println(2);
+        printSolution(new SudokuBoard(startValues3));
+        System.out.print(3);
+        printSolution(new SudokuBoard(startValues2));
+    }
 
 	static int[][] startValues1 = {
                 {8,0,0,0,0,0,0,0,0},
